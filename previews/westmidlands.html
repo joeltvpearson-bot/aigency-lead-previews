@@ -2,7 +2,215 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>West Midlands preview</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>West Midlands Gas Ltd — Your New Smart Website | The AIgency</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #e2e8f0; line-height: 1.6; }
+.hero { min-height: 100vh; background: linear-gradient(135deg, #0a0a0f 0%, #0f1117 40%, #111827 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); border-radius: 50px; padding: 0.5rem 1.2rem; font-size: 0.8rem; font-weight: 600; color: #F59E0B; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2rem; }
+.hero-title { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; margin-bottom: 1.5rem; color: #f8fafc; }
+.hero-title .accent { color: #F59E0B; }
+.hero-subtitle { font-size: clamp(1rem, 2vw, 1.3rem); color: #94a3b8; max-width: 600px; margin: 0 auto 2.5rem; font-weight: 400; }
+.hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #F59E0B, #d97706); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 32px rgba(245,158,11,0.35); }
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(245,158,11,0.5); }
+.stats-bar { background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); padding: 2rem; }
+.stats-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+.stat-label { font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+.stat-value { font-size: 1.8rem; font-weight: 800; color: #f8fafc; }
+.stat-value span { font-size: 1rem; color: #F59E0B; }
+section { padding: 5rem 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #F59E0B; margin-bottom: 1rem; }
+.section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #f8fafc; margin-bottom: 1rem; line-height: 1.2; }
+.section-sub { font-size: 1.05rem; color: #64748b; max-width: 600px; margin-bottom: 3rem; }
+.preview-section { background: #0d0d14; }
+.preview-frame-wrap { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 40px 120px rgba(0,0,0,0.6); background: #fff; }
+.preview-bar { background: #1e2330; padding: 0.75rem 1.2rem; display: flex; align-items: center; gap: 1rem; }
+.preview-dots { display: flex; gap: 6px; }
+.preview-dots span { width: 12px; height: 12px; border-radius: 50%; }
+.preview-dots span:nth-child(1) { background: #ff5f57; }
+.preview-dots span:nth-child(2) { background: #febc2e; }
+.preview-dots span:nth-child(3) { background: #28c840; }
+.preview-url { flex: 1; background: rgba(255,255,255,0.07); border-radius: 6px; padding: 0.3rem 0.8rem; font-size: 0.75rem; color: #64748b; font-family: monospace; }
+.preview-iframe { width: 100%; height: 600px; border: none; display: block; background: #fff; }
+.features-section { background: #0a0a0f; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.feature-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 2rem; transition: all 0.3s ease; }
+.feature-card:hover { border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.05); transform: translateY(-4px); }
+.feature-icon { width: 48px; height: 48px; background: rgba(245,158,11,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.2rem; }
+.feature-title { font-size: 1.1rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.5rem; }
+.feature-desc { font-size: 0.9rem; color: #64748b; line-height: 1.6; }
+.reviews-section { background: #0d0d14; }
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.review-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 1.8rem; }
+.review-stars { color: #fbbf24; font-size: 1rem; margin-bottom: 0.8rem; letter-spacing: 2px; }
+.review-text { font-size: 0.95rem; color: #94a3b8; line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+.review-author { font-size: 0.85rem; font-weight: 600; color: #f8fafc; }
+.review-location { font-size: 0.8rem; color: #475569; }
+.reviews-cta { text-align: center; padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; }
+.google-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: white; color: #1a1a1a; padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; margin-top: 1rem; transition: all 0.3s; }
+.google-badge:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.compare-section { background: #0a0a0f; }
+.compare-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); }
+.compare-table th { padding: 1.2rem 1.5rem; text-align: left; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(255,255,255,0.04); color: #64748b; }
+.compare-table th.highlight { background: rgba(245,158,11,0.15); color: #F59E0B; }
+.compare-table td { padding: 1.1rem 1.5rem; font-size: 0.95rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05); }
+.compare-table td.highlight { background: rgba(245,158,11,0.05); color: #f8fafc; font-weight: 600; }
+.compare-table tr:hover td { background: rgba(255,255,255,0.02); }
+.compare-table tr:hover td.highlight { background: rgba(245,158,11,0.08); }
+.tick { color: #22c55e; font-size: 1.1rem; }
+.cross { color: #ef4444; font-size: 1.1rem; }
+.pricing-section { background: #0d0d14; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.pricing-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.5rem 2rem; text-align: center; position: relative; }
+.pricing-card.featured { border-color: rgba(245,158,11,0.4); background: rgba(245,158,11,0.07); }
+.pricing-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #F59E0B; color: white; padding: 0.3rem 1.2rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+.pricing-name { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; font-weight: 700; margin-bottom: 0.5rem; }
+.pricing-price { font-size: 3rem; font-weight: 900; color: #f8fafc; line-height: 1; margin-bottom: 0.3rem; }
+.pricing-price sup { font-size: 1.5rem; vertical-align: super; }
+.pricing-period { font-size: 0.85rem; color: #475569; margin-bottom: 2rem; }
+.pricing-features { list-style: none; margin-bottom: 2rem; text-align: left; }
+.pricing-features li { padding: 0.5rem 0; font-size: 0.9rem; color: #94a3b8; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 0.6rem; }
+.pricing-features li::before { content: '✓'; color: #F59E0B; font-weight: 700; }
+.pricing-cta { display: block; padding: 0.9rem; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.3s; }
+.pricing-cta.outline { border: 1px solid rgba(255,255,255,0.15); color: #94a3b8; }
+.pricing-cta.outline:hover { border-color: rgba(245,158,11,0.5); color: #F59E0B; }
+.pricing-cta.filled { background: linear-gradient(135deg, #F59E0B, #d97706); color: white; box-shadow: 0 4px 20px rgba(245,158,11,0.3); }
+.pricing-cta.filled:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,158,11,0.45); }
+.cta-section { background: linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(217,119,6,0.1) 100%); border-top: 1px solid rgba(245,158,11,0.2); border-bottom: 1px solid rgba(245,158,11,0.2); text-align: center; }
+.cta-section .section-title { max-width: 700px; margin: 0 auto 1rem; }
+.cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+.btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #F59E0B, #d97706); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; text-decoration: none; box-shadow: 0 8px 32px rgba(245,158,11,0.35); transition: all 0.3s; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(245,158,11,0.5); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(255,255,255,0.2); color: #e2e8f0; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; font-size: 1.05rem; text-decoration: none; transition: all 0.3s; }
+.btn-secondary:hover { border-color: rgba(245,158,11,0.5); color: #F59E0B; }
+footer { background: #060608; border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem; text-align: center; }
+.footer-logo { font-size: 1.1rem; font-weight: 800; color: #f8fafc; margin-bottom: 0.5rem; }
+.footer-tag { font-size: 0.8rem; color: #475569; margin-bottom: 0.5rem; }
+.footer-link { color: #F59E0B; text-decoration: none; font-size: 0.85rem; }
+.footer-link:hover { text-decoration: underline; }
+@media (max-width: 640px) {
+  .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .compare-table { font-size: 0.8rem; }
+  .compare-table th, .compare-table td { padding: 0.8rem 0.8rem; }
+}
+</style>
 </head>
-<body><p>West Midlands preview</p></body>
+<body>
+<section class="hero">
+  <div>
+    <div class="hero-badge">🤖 Exclusive Preview — Built Just For You</div>
+    <h1 class="hero-title">West Midlands Gas Ltd —<br><span class="accent">Your New Smart Website</span></h1>
+    <p class="hero-subtitle">See exactly what your new AI-powered website will look like. Built for your business, ready to go live.</p>
+    <a href="https://www.theaigency.co.uk" class="hero-cta">🚀 Claim This Website — Talk To Us Today</a>
+  </div>
+</section>
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div><div class="stat-label">Google Reviews</div><div class="stat-value">68 reviews</div></div>
+    <div><div class="stat-label">Star Rating</div><div class="stat-value">4.9 <span>★</span></div></div>
+    <div><div class="stat-label">Service Area</div><div class="stat-value" style="font-size:1.2rem">Edgbaston</div></div>
+  </div>
+</div>
+<section class="preview-section">
+  <div class="section-inner">
+    <div class="section-label">Live Preview</div>
+    <h2 class="section-title">Your Website, Ready to Launch</h2>
+    <p class="section-sub">Custom-built around your business, reviews, and service area.</p>
+    <div class="preview-frame-wrap">
+      <div class="preview-bar"><div class="preview-dots"><span></span><span></span><span></span></div><div class="preview-url">westmidlandsgas.co.uk</div></div>
+      <iframe class="preview-iframe" src="https://westmidlandsgas.co.uk" title="West Midlands Gas Ltd Website Preview" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+<section class="features-section">
+  <div class="section-inner">
+    <div class="section-label">What's Included</div>
+    <h2 class="section-title">Everything You Need to Win More Jobs</h2>
+    <p class="section-sub">Your new website isn't just a brochure — it's a 24/7 sales machine.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">🤖</div><div class="feature-title">AI Receptionist</div><div class="feature-desc">Answers calls, qualifies leads, and books jobs automatically — even at 2am.</div></div>
+      <div class="feature-card"><div class="feature-icon">📱</div><div class="feature-title">Mobile-First Design</div><div class="feature-desc">85% of your customers search on mobile. Your site looks flawless on every device.</div></div>
+      <div class="feature-card"><div class="feature-icon">⭐</div><div class="feature-title">Reviews Showcase</div><div class="feature-desc">Your 68 Google reviews front and centre — building trust before they even call.</div></div>
+      <div class="feature-card"><div class="feature-icon">📍</div><div class="feature-title">Local SEO Built-In</div><div class="feature-desc">Rank higher in Edgbaston and surrounding areas. Get found by the right customers.</div></div>
+      <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-title">Lightning Fast</div><div class="feature-desc">Loads in under 2 seconds. Slow sites lose 40% of visitors before they see anything.</div></div>
+      <div class="feature-card"><div class="feature-icon">📊</div><div class="feature-title">Live Dashboard</div><div class="feature-desc">See your leads, calls, and bookings in real-time. Know exactly what's working.</div></div>
+    </div>
+  </div>
+</section>
+<section class="reviews-section">
+  <div class="section-inner">
+    <div class="section-label">Social Proof</div>
+    <h2 class="section-title">What Your Customers Say</h2>
+    <p class="section-sub">68 five-star reviews — showcased beautifully on your new site.</p>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"West Midlands Gas sorted our boiler quickly and for a fair price. Really professional service."</div><div class="review-author">Claire M.</div><div class="review-location">Edgbaston</div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Came out the same day, very knowledgeable and left no mess. Would definitely recommend."</div><div class="review-author">James B.</div><div class="review-location">Harborne</div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Serviced our boiler and found a fault we didn't know about. Honest and reliable."</div><td class="review-author">Priya K.</div><div class="review-location">Moseley</div></div>
+    </div>
+    <div class="reviews-cta">
+      <p style="color:#94a3b8; margin-bottom:0.5rem;">All 68 reviews displayed live on your new website</p>
+      <a href="https://www.google.com/search?q=West+Midlands+Gas+Ltd+Edgbaston" class="google-badge" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        View All 68 Google Reviews
+      </a>
+    </div>
+  </div>
+</section>
+<section class="compare-section">
+  <div class="section-inner">
+    <div class="section-label">Why Upgrade</div>
+    <h2 class="section-title">Your Current Site vs. Your New Site</h2>
+    <p class="section-sub">Here's what changes the moment you go live.</p>
+    <table class="compare-table">
+      <thead><tr><th>Feature</th><th>Current Website</th><th class="highlight">AIgency Website</th></tr></thead>
+      <tbody>
+        <tr><td>AI Receptionist (24/7 call handling)</td><td><span class="cross">✗</span></td><td class="highlight"><span class="tick">✓</span></td></tr>
+        <tr><td>Mobile Optimised</td><td><span class="cross">✗</span></td><td class="highlight"><span class="tick">✓</span></td></tr>
+        <tr><td>Google Reviews Showcase</td><td><span class="cross">✗</span></td><td class="highlight"><span class="tick">✓</span></td></tr>
+        <tr><td>Local SEO Optimisation</td><td><span class="cross">✗</span></td><td class="highlight"><span class="tick">✓</span></td></tr>
+        <tr><td>Lead Capture Forms</td><td><span class="cross">✗</span></td><td class="highlight"><span class="tick">✓</span></td></tr>
+        <tr><td>Real-Time Analytics Dashboard</td><td><span class="cross">✗</span></td><td class="highlight"><span class="tick">✓</span></td></tr>
+        <tr><td>Booking / Quote Request System</td><td><span class="cross">✗</span></td><td class="highlight"><span class="tick">✓</span></td></tr>
+        <tr><td>Monthly Performance Reports</td><td><span class="cross">✗</span></td><td class="highlight"><span class="tick">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="pricing-section">
+  <div class="section-inner">
+    <div class="section-label">Simple Pricing</div>
+    <h2 class="section-title">One Flat Monthly Fee. No Surprises.</h2>
+    <p class="section-sub">Everything included. Cancel anytime.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card"><div class="pricing-name">Starter</div><div class="pricing-price"><sup>£</sup>197</div><div class="pricing-period">per month</div><ul class="pricing-features"><li>Smart Website</li><li>Mobile Optimised</li><li>Reviews Showcase</li><li>Local SEO</li><li>Lead Capture Forms</li></ul><a href="https://www.theaigency.co.uk" class="pricing-cta outline">Get Started</a></div>
+      <div class="pricing-card featured"><div class="pricing-badge">Most Popular</div><div class="pricing-name">Growth</div><div class="pricing-price"><sup>£</sup>297</div><div class="pricing-period">per month</div><ul class="pricing-features"><li>Everything in Starter</li><li>AI Receptionist</li><li>Booking System</li><li>Analytics Dashboard</li><li>Monthly Reports</li><li>Priority Support</li></ul><a href="https://www.theaigency.co.uk" class="pricing-cta filled">Claim Your Website</a></div>
+      <div class="pricing-card"><div class="pricing-name">Elite</div><div class="pricing-price"><sup>£</sup>497</div><div class="pricing-period">per month</div><ul class="pricing-features"><li>Everything in Growth</li><li>Google Ads Management</li><li>Review Generation System</li><li>Competitor Tracking</li><li>Dedicated Account Manager</li></ul><a href="https://www.theaigency.co.uk" class="pricing-cta outline">Get Started</a></div>
+    </div>
+  </div>
+</section>
+<section class="cta-section">
+  <div class="section-inner">
+    <div class="section-label">Ready to Go Live?</div>
+    <h2 class="section-title">This Website Was Built For West Midlands Gas Ltd</h2>
+    <p class="section-sub" style="margin: 0 auto;">It's ready to launch. All we need is your go-ahead.</p>
+    <div class="cta-buttons">
+      <a href="https://www.theaigency.co.uk" class="btn-primary">🚀 Yes — Launch My Website</a>
+      <a href="https://www.theaigency.co.uk" class="btn-secondary">💬 I Have Questions First</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-logo">The AIgency</div>
+  <div class="footer-tag">AI Voice Agents &amp; Smart Websites</div>
+  <a href="https://www.theaigency.co.uk" class="footer-link" target="_blank">www.theaigency.co.uk</a>
+</footer>
+</body>
 </html>
